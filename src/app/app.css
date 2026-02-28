@@ -1,0 +1,28 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.main {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+.sidebar {
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}

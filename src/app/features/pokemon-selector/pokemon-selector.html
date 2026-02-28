@@ -1,0 +1,33 @@
+<div class="selector-container">
+  <h1 class="title">Pokémon</h1>
+  <p class="subtitle">Selecciona 3 Pokémon para que sean parte de tu equipo</p>
+
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Buscar por índice, nombre..."
+      [value]="searchTerm()"
+      (input)="onSearch($any($event.target).value)"
+    />
+  </div>
+
+  @if (loading()) {
+    <p class="loading">Cargando...</p>
+  } @else if (filteredPokemon().length === 0) {
+    <p class="empty">No se encontraron Pokémon</p>
+  } @else {
+    <div class="pokemon-grid">
+      @for (pokemon of filteredPokemon(); track pokemon.id) {
+        <app-pokemon-card
+          [pokemon]="pokemon"
+          [selected]="isSelected(pokemon)"
+          [showStats]="false"
+          (select)="toggleSelect($event)"
+        />
+      }
+    </div>
+  }
+
+  <button class="save-btn" (click)="save()">Guardar</button>
+</div>

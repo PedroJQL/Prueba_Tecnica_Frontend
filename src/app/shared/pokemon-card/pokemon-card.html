@@ -1,0 +1,22 @@
+<div
+  class="pokemon-card"
+  [class.selected]="selected"
+  [class.detail]="showStats"
+  (click)="onSelect()"
+>
+  <img [src]="pokemon.imageUrl" [alt]="pokemon.name" class="pokemon-image" />
+  <span class="pokemon-id">#{{ pokemon.id | number:'3.0-0' }}</span>
+  <span class="pokemon-name">{{ pokemon.name }}</span>
+  @if (showStats) {
+    <span class="pokemon-types">{{ pokemon.types.join(' / ') }}</span>
+    <div class="stats-container">
+      @for (stat of pokemon.stats; track stat.name) {
+        <app-stat-bar
+          [label]="stat.name"
+          [value]="stat.baseStat"
+          [percentage]="stat.percentage"
+        />
+      }
+    </div>
+  }
+</div>

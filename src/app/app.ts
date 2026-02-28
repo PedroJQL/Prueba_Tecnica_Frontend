@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { UserProfileComponent } from './features/user-profile/user-profile';
+import { PokemonSelectorComponent } from './features/pokemon-selector/pokemon-selector';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, UserProfileComponent, PokemonSelectorComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('poquedex-app');
-}
+export class App {}
